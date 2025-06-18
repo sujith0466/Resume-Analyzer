@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Resume Analyzer</title>
+  <style>
+    body { font-family: Arial; margin: 40px; }
+    .result { margin-top: 20px; }
+    .score { font-size: 22px; font-weight: bold; }
+    ul { padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <h1>📄 AI Resume Analyzer</h1>
+  <form method="POST" enctype="multipart/form-data">
+    <label>Upload your resume (.pdf or .docx):</label><br><br>
+    <input type="file" name="resume" required>
+    <button type="submit">Analyze</button>
+  </form>
+
+  {% if result %}
+    <div class="result">
+      <p class="score">Match Score: {{ result.score }}%</p>
+      <p><strong>Found Keywords:</strong></p>
+      <ul>
+        {% for kw in result.found %}
+          <li>{{ kw }}</li>
+        {% endfor %}
+      </ul>
+      <p><strong>Missing Keywords:</strong></p>
+      <ul>
+        {% for kw in result.missing %}
+          <li>{{ kw }}</li>
+        {% endfor %}
+      </ul>
+      <p><strong>Suggestions:</strong></p>
+      <ul>
+        {% for s in result.suggestions %}
+          <li>{{ s }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+</body>
+</html>

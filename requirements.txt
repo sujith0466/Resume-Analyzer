@@ -1,0 +1,5 @@
+Flask==2.3.2
+nltk==3.8.1
+spacy==3.7.2
+pdfminer.six==20221105
+docx2txt==1.0
