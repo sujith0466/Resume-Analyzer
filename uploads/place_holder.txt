@@ -1,0 +1,2 @@
+This file exists to ensure the uploads/ folder is tracked by Git.
+Delete or ignore during actual file processing.
